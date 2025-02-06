@@ -1,17 +1,16 @@
 import java.util.ArrayList;
 
-public class Epic extends Task{
+public class Epic extends Task {
 
     private ArrayList<Integer> subtasksSet;
 
     public Epic(String taskName, String description) {
-        super(taskName, description, Status.NONE);
+        super(taskName, description, Status.NONE);// можно сделать по умолчанию NEW, но так мне кажется перспективнее, безопаснее(вопрос про эпики, оставшиеся без подзадач меня тревожит)
         setEpicId(getId());
         subtasksSet = new ArrayList<>();
-        setEpicId(-2);
     }
 
-    public void addSubtaskToEpic(Task subtask){
+    public void addSubtaskToEpic(Task subtask) {
         subtasksSet.add(subtask.getId());
     }
 
@@ -19,13 +18,20 @@ public class Epic extends Task{
         return subtasksSet;
     }
 
-    public void removeSubtaskIdFromSubtasksSet(Task subtask){
+    public void removeSubtaskIdFromSubtasksSet(Task subtask) {
         subtasksSet.remove((Integer)subtask.getId());
     }
+
     public void setSubtasksSet(ArrayList<Integer> subtasks) {
         subtasksSet.addAll(subtasks);
     }
-    public void clearSubtasksSet(){
+
+    public void clearSubtasksSet() {
         subtasksSet.clear();
+    }
+
+    @Override
+    public String toString() {
+        return "Epic"+CreateStringForToString();
     }
 }
