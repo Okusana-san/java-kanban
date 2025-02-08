@@ -5,12 +5,11 @@ public class Epic extends Task {
     private ArrayList<Integer> subtasksSet;
 
     public Epic(String taskName, String description) {
-        super(taskName, description, Status.NONE);// можно сделать по умолчанию NEW, но так мне кажется перспективнее, безопаснее(вопрос про эпики, оставшиеся без подзадач меня тревожит)
-        setEpicId(getId());
+        super(taskName, description, Status.NEW);
         subtasksSet = new ArrayList<>();
     }
 
-    public void addSubtaskToEpic(Task subtask) {
+    public void addSubtaskToEpic(Subtask subtask) {
         subtasksSet.add(subtask.getId());
     }
 
@@ -18,7 +17,7 @@ public class Epic extends Task {
         return subtasksSet;
     }
 
-    public void removeSubtaskIdFromSubtasksSet(Task subtask) {
+    public void removeSubtaskIdFromSubtasksSet(Subtask subtask) {
         subtasksSet.remove((Integer)subtask.getId());
     }
 
@@ -32,6 +31,6 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return "Epic"+CreateStringForToString();
+        return "Epic" + createStringForToString();
     }
 }
