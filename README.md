@@ -1,2 +1,4 @@
 # java-kanban
-Repository for homework project.
+Repository for homework project.  
+Добрый день!  С наставником мой метод getEpicStatus я обсудила и мы выяснили, что он рабочий.  Теперь совсем рабочий.  
+Оставила в комментарии пояснение моей логики.  Остальное вроде тоже поправила...
